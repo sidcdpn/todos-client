@@ -1,0 +1,40 @@
+
+<!-- <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+  
+  <form (ngSubmit)="createCategory()">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="categoryName" name="categoryName" class="form-control" placeholder="Enter category name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Category</button>
+  </form>
+  
+
+<h4 *ngFor="let category of categoryStorage">{{category.catName}}</h4>
+ -->
+<!-- 
+ <div class="form-floating my-2 col-md-4">
+  <input type="text" class="form-control" placeholder="">
+  <label for="">Category</label>
+  <div class="d-flex justify-content-end my-2">
+    <button class="btn btn-dark">Add+</button>
+  </div>
+</div> -->
+
+
+ <div *ngIf="errorMessage" class="alert alert-danger my-2" role="alert">
+  {{ errorMessage }}
+</div>
+
+<form [formGroup]="categoryForm" (ngSubmit)="createCategory()">
+  <div class="form-group my-2">
+    <input type="text" formControlName="categoryName" class="form-control" placeholder="Enter category name" required>
+  </div>
+  <button type="submit" class="btn btn-primary my-1" [disabled]="categoryForm.invalid">Add Category</button>
+</form>
+
+
+
+
+<h4 *ngFor="let category of categoryStorage">{{ category.catName }}</h4>
